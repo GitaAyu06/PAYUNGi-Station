@@ -3,8 +3,6 @@
     package="com.example.payungistation">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -18,7 +16,11 @@
         android:theme="@style/AppTheme.Fullscreen">
         <activity android:name=".DonePage"></activity>
         <activity android:name=".ReturnPage" />
-        <activity android:name=".RentalPage" />
+        <activity android:name=".RentalPage">
+            <meta-data
+            android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+            android:value="barcode" />
+        </activity>
         <activity android:name=".HomePage" />
         <activity android:name=".LandingPage">
             <intent-filter>
