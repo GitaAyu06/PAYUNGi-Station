@@ -3,5 +3,6 @@
     <string name="rent">Rent</string>
     <string name="done">Done</string>
     <string name="returnumbrella">Return</string>
+    <string name="QR_description">Please focus on QR code</string>
 
 </resources>
