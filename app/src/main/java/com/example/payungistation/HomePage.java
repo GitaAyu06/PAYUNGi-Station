@@ -1,7 +1,6 @@
 package com.example.payungistation;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 public class HomePage extends AppCompatActivity  {
-    private Button btnRent;
-    private Button btnReturn;
+    private Button btnRent, btnReturn, btnGuide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +19,7 @@ public class HomePage extends AppCompatActivity  {
 
         btnRent = findViewById(R.id.btnRent);
         btnReturn = findViewById(R.id.btnReturn);
+        btnGuide = findViewById(R.id.btnGuide);
 
         btnRent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +33,14 @@ public class HomePage extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePage.this,ReturnPage.class);
+                startActivity(intent);
+            }
+        });
+
+        btnGuide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this,GuidancePage.class);
                 startActivity(intent);
             }
         });

@@ -44,6 +44,7 @@ public class RentalPage extends AppCompatActivity  {
     FirebaseFirestore db;
     FirebaseAuth mAuth;
     SparseArray<Barcode> qrCode;
+    long balance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +52,22 @@ public class RentalPage extends AppCompatActivity  {
         setContentView(R.layout.activity_rental_page);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        btnHome = findViewById(R.id.btnHome);
+        btnHome     = findViewById(R.id.btnHome);
         surfaceView = findViewById(R.id.cameraPreview);
-        textView = findViewById(R.id.textView);
-        db = FirebaseFirestore.getInstance();
-        mAuth = FirebaseAuth.getInstance();
+        textView    = findViewById(R.id.textView);
+        db          = FirebaseFirestore.getInstance();
+        mAuth       = FirebaseAuth.getInstance();
+        balance     = 0l;
 
         barcodeDetector = new BarcodeDetector.Builder(this).setBarcodeFormats(Barcode.QR_CODE).build();
-        cameraSource = new CameraSource.Builder(this,barcodeDetector).setRequestedPreviewSize(640,480).
-                setFacing(1).setAutoFocusEnabled(true).build();
+        cameraSource    = new CameraSource.Builder(this,barcodeDetector).setRequestedPreviewSize(640,480).
+                          setFacing(1).setAutoFocusEnabled(true).build();
 
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(),
+                    Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
                     return;
                 }
                 try{
@@ -98,6 +101,7 @@ public class RentalPage extends AppCompatActivity  {
                 if(qrCode.size() != 0 && firstDetected){
                     firstDetected = false;
                     db.collection("Borrow").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        //check is the user still borrowing another umbrella
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                             if (!queryDocumentSnapshots.isEmpty()) {
@@ -111,29 +115,43 @@ public class RentalPage extends AppCompatActivity  {
                                         status = true;
                                     }
                                 }
+
                                 if (status) {
-                                    DocumentReference documentReference = db.collection("Borrow").document(qrCode.valueAt(0).displayValue);
-                                    Calendar calendar = Calendar.getInstance();
-                                    Map<String, Date> map = new HashMap<>();
-                                    map.put("Tanggal Peminjamans", calendar.getTime());
-                                    documentReference.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Users").document(qrCode.valueAt(0).displayValue)
+                                             .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                         @Override
-                                        public void onSuccess(Void aVoid) {
-                                            textView.setText(qrCode.valueAt(0).displayValue);
-                                            //scanBarcode.setVisibility(View.VISIBLE);
+                                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                            balance = documentSnapshot.getLong("Balance");
+                                            if (balance >= 5000){
+                                                DocumentReference documentReference = db.collection("Borrow").document(qrCode.valueAt(0).displayValue);
+                                                Calendar calendar = Calendar.getInstance();
+                                                Map<String, Date> map = new HashMap<>();
+                                                map.put("Tanggal Peminjamans", calendar.getTime());
+                                                documentReference.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        textView.setText("Take the umbrella out!");
+                                                        startActivity(new Intent(getApplicationContext(), SuccessPage.class));
+                                                    }
+                                                }).addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        String errMessage = "Failed to synchronize data";
+                                                        Intent intent = new Intent(getApplicationContext(), FailedPage.class);
+                                                        intent.putExtra("errMessage", errMessage);
+                                                        startActivity(intent);
+                                                    }
+                                                });
+                                            }else{
+                                                String errMessage = "Not enough balance! Top up your balance";
+                                                Intent intent = new Intent(getApplicationContext(), FailedPage.class);
+                                                intent.putExtra("errMessage", errMessage);
+                                                startActivity(intent);
+                                            }
                                         }
-                                    })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    startActivity(new Intent(getApplicationContext(), DonePage.class));
-                                                    finish();
-                                                }
-                                            });
+                                    });
                                 } else {
-                                    textView.setText(qrCode.valueAt(0).displayValue);
-                                    printData("Masih Meminjam");
-                                    //scanBarcode.setVisibility(View.VISIBLE);
+                                    textView.setText("You still borrowing another umbrella. \n Return your umbrella and try again!");
                                 }
                             }
                         }
@@ -152,7 +170,4 @@ public class RentalPage extends AppCompatActivity  {
         });
     }
 
-    private void printData(String value) {
-        Toast.makeText(this, value,Toast.LENGTH_SHORT).show();
-    }
 }

@@ -14,23 +14,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Fullscreen">
-        <activity android:name=".DonePage"></activity>
+        <activity android:name=".TopupPage"></activity>
+        <activity android:name=".GuidancePage" />
+        <activity android:name=".FailedPage" />
+        <activity android:name=".SuccessPage" />
+        <activity android:name=".DonePage" />
         <activity android:name=".ReturnPage" />
         <activity android:name=".RentalPage">
             <meta-data
-            android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-            android:value="barcode" />
+                android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+                android:value="barcode" />
         </activity>
         <activity android:name=".HomePage" />
         <activity android:name=".LandingPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="barcode"></meta-data>
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
     </application>
 
 </manifest>
