@@ -8,7 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 public class HomePage extends AppCompatActivity  {
-    private Button btnRent, btnReturn, btnGuide;
+    private Button btnRent, btnReturn, btnGuide, btnTopup, btnReport, btnHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,9 @@ public class HomePage extends AppCompatActivity  {
         btnRent = findViewById(R.id.btnRent);
         btnReturn = findViewById(R.id.btnReturn);
         btnGuide = findViewById(R.id.btnGuide);
+        btnTopup = findViewById(R.id.btnTopup);
+        btnReport = findViewById(R.id.btnReport);
+        btnHelp = findViewById(R.id.btnHelp);
 
         btnRent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +44,30 @@ public class HomePage extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePage.this,GuidancePage.class);
+                startActivity(intent);
+            }
+        });
+
+        btnTopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this,TopupPage.class);
+                startActivity(intent);
+            }
+        });
+
+        btnReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this,ReportPage.class);
+                startActivity(intent);
+            }
+        });
+
+        btnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this,HelpPage.class);
                 startActivity(intent);
             }
         });

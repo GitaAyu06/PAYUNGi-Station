@@ -14,7 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Fullscreen">
-        <activity android:name=".TopupPage"></activity>
+        <activity android:name=".Help3Page"></activity>
+        <activity android:name=".Help2Page" />
+        <activity android:name=".ReportPage" />
+        <activity android:name=".Help1Page" />
+        <activity android:name=".HelpPage" />
+        <activity android:name=".PulsePage" />
+        <activity android:name=".AgentPage" />
+        <activity android:name=".EmoneyPage" />
+        <activity android:name=".BankPage" />
+        <activity android:name=".TopupPage" />
         <activity android:name=".GuidancePage" />
         <activity android:name=".FailedPage" />
         <activity android:name=".SuccessPage" />

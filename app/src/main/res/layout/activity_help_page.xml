@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TopupPage">
+    tools:context=".HelpPage">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/topuppage" />
+        app:srcCompat="@drawable/helppage" />
 
     <Button
         android:id="@+id/btnback"
         android:layout_width="119dp"
         android:layout_height="98dp"
-        android:layout_marginEnd="888dp"
+        android:layout_marginEnd="896dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="@string/rent"
         android:textColor="#00FFFFFF"
@@ -32,10 +32,9 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/btnBank"
-        android:layout_width="918dp"
-        android:layout_height="85dp"
-        android:layout_marginEnd="112dp"
+        android:id="@+id/btnHelp1"
+        android:layout_width="1024dp"
+        android:layout_height="75dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="@string/rent"
         android:textColor="#00FFFFFF"
@@ -44,13 +43,12 @@
         app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="@+id/imgHome"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.235" />
+        app:layout_constraintVertical_bias="0.552" />
 
     <Button
-        android:id="@+id/btnEmoney"
-        android:layout_width="918dp"
-        android:layout_height="85dp"
-        android:layout_marginEnd="264dp"
+        android:id="@+id/btnHelp2"
+        android:layout_width="1024dp"
+        android:layout_height="75dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="@string/rent"
         android:textColor="#00FFFFFF"
@@ -59,13 +57,12 @@
         app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="@+id/imgHome"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387" />
+        app:layout_constraintVertical_bias="0.678" />
 
     <Button
-        android:id="@+id/btnAgent"
-        android:layout_width="918dp"
-        android:layout_height="85dp"
-        android:layout_marginEnd="428dp"
+        android:id="@+id/btnHelp3"
+        android:layout_width="1024dp"
+        android:layout_height="75dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="@string/rent"
         android:textColor="#00FFFFFF"
@@ -74,21 +71,6 @@
         app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="@+id/imgHome"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541" />
-
-    <Button
-        android:id="@+id/btnPulse"
-        android:layout_width="500dp"
-        android:layout_height="85dp"
-        android:layout_marginEnd="604dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:text="@string/rent"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
-        app:layout_constraintStart_toStartOf="@+id/imgHome"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.708" />
+        app:layout_constraintVertical_bias="0.799" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

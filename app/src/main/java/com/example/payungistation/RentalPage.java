@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.vision.CameraSource;
@@ -34,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RentalPage extends AppCompatActivity  {
-    private Button btnHome;
+    private Button btnHome, btnHelp;
     private TextView textView;
     private SurfaceView surfaceView;
     private CameraSource cameraSource;
@@ -53,6 +52,7 @@ public class RentalPage extends AppCompatActivity  {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         btnHome     = findViewById(R.id.btnHome);
+        btnHelp     = findViewById(R.id.btnHelp);
         surfaceView = findViewById(R.id.cameraPreview);
         textView    = findViewById(R.id.textView);
         db          = FirebaseFirestore.getInstance();
@@ -165,6 +165,14 @@ public class RentalPage extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RentalPage.this,HomePage.class);
+                startActivity(intent);
+            }
+        });
+
+        btnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RentalPage.this,HelpPage.class);
                 startActivity(intent);
             }
         });
