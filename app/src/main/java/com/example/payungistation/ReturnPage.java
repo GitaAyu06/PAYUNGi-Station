@@ -102,7 +102,7 @@ public class ReturnPage extends AppCompatActivity  {
                     firstDetected = false;
                     rawValue = qrCode.valueAt(0).displayValue;
 
-                    db.collection("Return").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    db.collection("Users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                             if (!queryDocumentSnapshots.isEmpty()) {
@@ -129,8 +129,8 @@ public class ReturnPage extends AppCompatActivity  {
                                            date                    = Calendar.getInstance().getTime();
                                            databaseDate            = d.getDate("Tanggal Peminjamans");
                                            long price              = Math.abs(databaseDate.getTime() - date.getTime());
-                                           long diff               = (price / (30000));
-                                           fee                     = (diff/10)*5000;
+                                           long diff               = (price / (60000));
+                                           fee                     = 5000 + (diff/30)*5000;
                                            long currentBalance     = balance - fee;
                                            setBalance(currentBalance);
                                            map.put("tanggalPeminjaman", databaseDate);
@@ -145,11 +145,8 @@ public class ReturnPage extends AppCompatActivity  {
                                                      startActivity(new Intent(getApplicationContext(), DonePage.class));
                                                   }
                                            });
-
                                            db.collection("Borrow").document(rawValue).delete();
                                            break;
-                                        } else {
-                                            textView.setText("You have not borrow any umbrella. \n Rent one!");
                                         }
                                      }
                                   } else {
