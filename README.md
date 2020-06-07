@@ -4,7 +4,7 @@ One of 2 repository for PAYUNGI project, This one for the Station Application.
 **CONTENT**
 * [What is PAYUNGI](#what-is-payungi)
 * [Screenshots](#screenshots)
-* [Environment Installation Guide Requirement](#environment-installation-guide-requirement)
+* [Environment Installation Guide](#environment-installation-guide)
   * [Android Studio Set-up](#android-studio-set-up)
   * [Firebase Set-up](#firebase-set-up)
   * [Android Virtual Devices Set-up](#android-virtual-devices-set-up)
@@ -21,7 +21,7 @@ These are a few picture of PAYUNGI user app and station app.
 
 ![User Application](https://drive.google.com/uc?export=view&id=11J7XXvehyI0CoYey8mDFNhtdXyVqUdfI)
 
-## Environment Installation Guide Requirement
+## Environment Installation Guide
 In this section, i will explain to you how you can join the development of PAYUNGI.
 Before we start, Below are the requirement to start developing PAYUNGI:
 * [Java Development Kit](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) (Recommeneded to use JDK-8 or greater JDK version) 
