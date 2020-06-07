@@ -1,5 +1,7 @@
 # PAYUNGI
 One of 2 repository for PAYUNGI project, This one is for the Station Application.
+* [User Application](https://github.com/bayusatria71/PAYUNGi)
+* [Station Application](https://github.com/GitaAyu06/PAYUNGi-Station)
 
 **CONTENT**
 * [What is PAYUNGi](#what-is-payungi)
