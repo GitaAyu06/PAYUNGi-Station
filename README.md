@@ -1,5 +1,5 @@
 # PAYUNGI
-One of 2 repository for PAYUNGI project, This one for User Application.
+One of 2 repository for PAYUNGI project, This one for the Station Application.
 
 **CONTENT**
 * [What is PAYUNGI](#what-is-payungi)
@@ -40,9 +40,7 @@ After you download Android Studio, the first thing Android studio gonna ask whet
 
 ![Option](https://github.com/bayusatria71/PAYUNGi/blob/master/Images/Open%20existing%20prpject.PNG)
 
-Choose **open an existing project**, then make sure you choose the PAYUNGI-master clone/download
-
-![Example](https://github.com/bayusatria71/PAYUNGi/blob/master/Images/PayungiMaster.PNG)
+Choose **open an existing project**, then make sure you choose the PAYUNGi-Station-master clone/download
 
 after android studio open the project, it will automatically download all the library it need, starting from Gradle library and then other implemented libraries in the project.
 
@@ -76,7 +74,7 @@ After you agreed to allow connection of firebase with android studio, go back to
 in the picture i choose to use project that i've already had, but for you that dont have any project, choose to make one and give it a name that properly fits the project, and by doing that you're ready to test your code.
 
 ### Android Virtual Devices Set-up
-Running to test your code could be done in 2 way, Use your own phone or use Android Virtual Device. I recommend you to use AVD instead your phone, it's easier this way to debug your code if it's still has bugs and error, but requires some of your memory, storage and processing to use AVD.
+Running to test your code could be done in 2 way, Use your own Tablet or use Android Virtual Device. I recommend you to use AVD instead of using your own tablet, it's easier this way to debug your code if it's still has bugs and error, but requires some of your memory, storage and processing to use AVD.
 
 To start with, you could open the AVD manager thats located near run button in top right of android studio.
 
@@ -88,7 +86,7 @@ then it will show the manager
 
 if you doesnt have any AVD yet, click on **Create Virtual Device**
 
-Then choose the hardware spesification that want to be virtualized, Recommended to use large screen phones (Trend)
+Then choose the hardware spesification that want to be virtualized, Recommended to use Tablet for the User Application
 
 ![Choose Hardware](https://github.com/bayusatria71/PAYUNGi/blob/master/Images/Hardware.PNG)
 
@@ -118,7 +116,7 @@ in the baloon there's a hyperlink that will redirect you to the apk location. Cl
 
 ![Example Done](https://github.com/bayusatria71/PAYUNGi/blob/master/Images/apk%20done.jpg)
 
-After the apk is built, it can be use to install the project to phones and AVD to test the codes.
+After the apk is built, it can be use to install the project to phones,tablet and AVD to test the codes.
 But it will need your action to move the apk manually to phone or avd storage, if you want to test it in AVD without building any APK, you can choose run the app on the AVD.
 
 ### Build Signed-app
