@@ -1,8 +1,8 @@
 # PAYUNGI
-One of 2 repository for PAYUNGI project, This one for the Station Application.
+One of 2 repository for PAYUNGI project, This one is for the Station Application.
 
 **CONTENT**
-* [What is PAYUNGI](#what-is-payungi)
+* [What is PAYUNGi](#what-is-payungi)
 * [Screenshots](#screenshots)
 * [Environment Installation Guide](#environment-installation-guide)
   * [Android Studio Set-up](#android-studio-set-up)
@@ -12,8 +12,8 @@ One of 2 repository for PAYUNGI project, This one for the Station Application.
   * [Build Debug-app](#build-debug-app)
   * [Build Signed-app](#build-signed-app)
 
-## What is PAYUNGI
-PAYUNGI is an Umbrella renting application for smartphone that uses Android as its OS. Payungi has two application, for the Station and for the stations. In the User application, users can 
+## What is PAYUNGi
+PAYUNGI is an Umbrella renting application for smartphone that uses Android as its OS. Payungi has two application, one for the user and one for the station.
 
 ## Screenshots
 
