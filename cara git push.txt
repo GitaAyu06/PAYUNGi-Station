@@ -1,3 +1,3 @@
 git add .
-git commit -m "Final version"
+git commit -m "Camera Bug Fixed"
 git push origin master

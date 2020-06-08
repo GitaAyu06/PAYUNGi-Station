@@ -3,6 +3,7 @@ package com.example.payungistation;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -33,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RentalPage extends AppCompatActivity  {
+    private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 101;
     private Button btnHome, btnHelp;
     private TextView textView;
     private SurfaceView surfaceView;
@@ -50,6 +52,10 @@ public class RentalPage extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rental_page);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+        }
 
         btnHome     = findViewById(R.id.btnHome);
         btnHelp     = findViewById(R.id.btnHelp);
